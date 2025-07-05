@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilderbuch-Generator - Editor</title>
+    <link rel="stylesheet" href="editor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <p>Bitte warten...</p>
+    </div>
+
+    <div id="toast-container">
+        </div>
+
+    <div class="editor-container">
+        <div class="sidebar left-sidebar">
+            <h2>Seiten</h2>
+            <div id="pages-thumbnail-container">
+                </div>
+            <button id="add-page-btn" class="sidebar-btn"><i class="fas fa-plus"></i> Seite hinzufügen</button>
+        </div>
+
+        <div class="main-editor">
+            <div class="top-bar">
+                <span id="current-page-display">Seite 1</span>
+                <div class="toolbar">
+                    <label for="image-upload" class="tool-btn add-image-label">
+                        <i class="fas fa-image"></i> Bild hinzufügen
+                        <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                    </label>
+                    <button id="add-text-btn" class="tool-btn"><i class="fas fa-font"></i> Text hinzufügen</button>
+
+                    <span class="toolbar-separator"></span>
+
+                    <button id="save-project-btn" class="tool-btn"><i class="fas fa-save"></i> Speichern</button>
+                    <button id="load-project-btn" class="tool-btn"><i class="fas fa-folder-open"></i> Laden</button>
+                    </div>
+            </div>
+
+            <div class="page-editor-area">
+                <div id="current-book-page" class="book-page">
+                    <p class="placeholder-text">Ziehe Bilder hierher oder klicke auf "Bild hinzufügen"</p>
+                </div>
+            </div>
+
+            <div class="bottom-bar">
+                <button id="export-pdf-btn" class="main-action-btn"><i class="fas fa-file-pdf"></i> Als PDF exportieren</button>
+            </div>
+        </div>
+
+        <div class="sidebar right-sidebar">
+            <h2>Eigenschaften</h2>
+            <div id="properties-panel">
+                <p class="placeholder-text">Wähle ein Element auf der Seite, um seine Eigenschaften zu bearbeiten.</p>
+
+                <div id="general-properties" class="property-group hidden">
+                    <h3>Allgemein</h3>
+                    <label for="z-index">Ebenenreihenfolge (Z-Index):</label>
+                    <input type="number" id="z-index" value="0" min="-100" max="100"><br>
+                    <div class="layer-buttons">
+                        <button id="bring-forward-btn" class="secondary-btn"><i class="fas fa-arrow-up"></i> Nach vorne</button>
+                        <button id="send-backward-btn" class="secondary-btn"><i class="fas fa-arrow-down"></i> Nach hinten</button>
+                    </div>
+
+                    <label for="page-background-color">Hintergrundfarbe Seite:</label>
+                    <input type="color" id="page-background-color" value="#FFFFFF"><br>
+                    <button id="clear-page-background-btn" class="secondary-btn">Hintergrund entfernen</button>
+                </div>
+
+                <div id="text-properties" class="property-group hidden">
+                    <h3>Text bearbeiten</h3>
+                    <label for="font-size">Schriftgröße:</label>
+                    <input type="number" id="font-size" value="16"><br>
+                    <label for="font-family">Schriftart:</label>
+                    <select id="font-family">
+                        <option value="Arial">Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Palatino Linotype">Palatino Linotype</option>
+                        <option value="Courier New">Courier New</option>
+                    </select><br>
+                    <label for="text-color">Textfarbe:</label>
+                    <input type="color" id="text-color" value="#000000"><br>
+                    <label for="text-align">Ausrichtung:</label>
+                    <select id="text-align">
+                        <option value="left">Links</option>
+                        <option value="center">Zentriert</option>
+                        <option value="right">Rechts</option>
+                    </select><br>
+                    <label for="text-content">Textinhalt:</label>
+                    <textarea id="text-content"></textarea>
+                </div>
+
+                <div id="image-properties" class="property-group hidden">
+                    <h3>Bild bearbeiten</h3>
+                    <label>Bild-URL (Vorschau):</label>
+                    <input type="text" id="image-url-display" readonly><br>
+                </div>
+
+                <button id="delete-element-btn" class="delete-btn hidden"><i class="fas fa-trash"></i> Element löschen</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="editor.js"></script>
+</body>
+</html>
