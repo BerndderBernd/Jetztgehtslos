@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilderbuch-Generator - Startseite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dein Bilderbuch-Generator</h1>
+        <p>Erstelle jetzt dein individuelles Bilderbuch!</p>
+
+        <div class="selection-section">
+            <h2>1. Wähle ein Buchformat</h2>
+            <div class="options-grid" id="format-options">
+                <div class="option-card" data-format="landscape">
+                    <h3>Querformat</h3>
+                    <p>Ideal für breite Bilder.</p>
+                </div>
+                <div class="option-card" data-format="portrait">
+                    <h3>Hochformat</h3>
+                    <p>Klassisches Buchformat.</p>
+                </div>
+                <div class="option-card" data-format="square">
+                    <h3>Quadratisch</h3>
+                    <p>Modern und vielseitig.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="selection-section">
+            <h2>2. Wähle deinen Buchstil</h2>
+            <div class="options-grid" id="style-options">
+                <div class="option-card" data-style="cartoon">
+                    <h3>Cartoon</h3>
+                    <p>Für verspielte und humorvolle Geschichten.</p>
+                </div>
+                <div class="option-card" data-style="picture-book">
+                    <h3>Bilderbuch</h3>
+                    <p>Realistische oder illustrierte Bilder.</p>
+                </div>
+                <div class="option-card" data-style="coloring-book">
+                    <h3>Ausmalbuch</h3>
+                    <p>Schwarz-Weiß-Vorlagen zum Ausmalen.</p>
+                </div>
+            </div>
+        </div>
+
+        <button id="start-editor-btn" disabled>Editor starten</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
