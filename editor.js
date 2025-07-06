@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     let bookStyle = 'picture-book';
 
-    const BACKEND_BASE_URL = 'http://127.0.0.1:5000'; // Die Basis-URL deines Flask-Backends
+    const BACKEND_BASE_URL = 'https://jetztgehtslo2.onrender.com'; // Die Basis-URL deines Flask-Backends
 
     // --- Feedback-Funktionen ---
 
